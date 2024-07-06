@@ -1,4 +1,5 @@
-export default function SelectedProject ({project,onDelete}){
+import TaskList from "../../../shopping-cart/src/components/TaskList";
+export default function SelectedProject ({project,onDelete,onAddTask,Tasks,onTaskDelete}){
     const formattedDate = new Date(project.DisplayDate).toLocaleDateString('en-US', {
         year: 'numeric',
         month: 'short',
@@ -20,7 +21,7 @@ export default function SelectedProject ({project,onDelete}){
             {project.description}
           </p>
         </header>
-        TASKS
+        <TaskList onAdd={onAddTask} Tasks={Tasks} onDelete={onTaskDelete}></TaskList>
       </div>
     )
 }
